@@ -76,7 +76,7 @@ module Soywiki
       end
 
       Haml::Engine.new(page_template).
-        render(nil, :body => body,
+        render(Object.new, :body => body,
                :title => title,
                :namespace => namespace,
                :namespaces => namespaces,
@@ -170,7 +170,7 @@ module Soywiki
     def make_index_page(namespace, inner_pages)
       outfile = File.join(HTML_DIR, namespace, 'index.html')
       html = Haml::Engine.new(index_page_template).
-        render(nil, :namespace => namespace,
+        render(Object.new, :namespace => namespace,
                :root => false,
                :pages => inner_pages,
                :namespaces => namespaces)
@@ -188,7 +188,7 @@ module Soywiki
     def make_root_index_page(namespaces)
       outfile = File.join(HTML_DIR, 'index.html')
       html = Haml::Engine.new(index_page_template).
-        render(nil, :namespace => nil,
+        render(Object.new, :namespace => nil,
                :pages => [],
                :root => true,
                :namespaces => namespaces)
