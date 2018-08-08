@@ -2,15 +2,15 @@
 " Maintainer:	Daniel Choi <dhchoi@gmail.com>
 " License: MIT License (c) 2011 Daniel Choi
 
-if exists("g:SoyWikiStarterLoaded") || &cp || version < 700
+if exists("g:TofuWikiStarterLoaded") || &cp || version < 700
   finish
 endif
-let g:SoyWikiStarterLoaded = 1
+let g:TofuWikiStarterLoaded = 1
 
 
-func! Soywiki()
-  source /Users/misha/.rvm/gems/ruby-1.9.2-p136/gems/soywiki-0.7.2/lib/soywiki.vim
+func! Tofuwiki()
+  source /Users/misha/.rvm/gems/ruby-1.9.2-p136/gems/tofuwiki-0.7.2/lib/tofuwiki.vim
 endfunc
 
-command! -bar -nargs=0 Soywiki :call Soywiki()
+command! -bar -nargs=0 Tofuwiki :call Tofuwiki()
 

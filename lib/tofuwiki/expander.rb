@@ -1,7 +1,7 @@
-module Soywiki
+module Tofuwiki
   class Expander
     # Takes any wiki link that stands alone on a line and expands it
-    # this is different from Soywiki::WIKI_WORD in that it requires ^\s* before the
+    # this is different from Tofuwiki::WIKI_WORD in that it requires ^\s* before the
     # first letter
 
     WIKI_LINK_PATTERN =  /^\s*([a-z0-9]\w+\.)?[A-Z][a-z]+[A-Z0-9]\w*\s*$/

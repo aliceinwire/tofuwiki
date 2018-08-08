@@ -1,12 +1,12 @@
-# SoyWiki
+# TofuWiki
 
-SoyWiki turns Vim into a powerful, lean, and fast wiki.  It's got all the
+TofuWiki turns Vim into a powerful, lean, and fast wiki.  It's got all the
 protein of a more conventional wiki, but less saturated fat and no
 cholesterol. 
 
 [screenshots]
 
-A quick overview of SoyWiki's characteristics and features:
+A quick overview of TofuWiki's characteristics and features:
 
 * flat text files
 * maximum data portability
@@ -23,37 +23,37 @@ A quick overview of SoyWiki's characteristics and features:
 * outliner-like capability with expansion commands
 * operates on all POSIX systems (e.g. OS X, Linux, FreeBSD)
 
-SoyWiki builds on Vim's strengths as a text editor and interface to the
-Unix operating system, SoyWiki's primary goal is to make it possible to
+TofuWiki builds on Vim's strengths as a text editor and interface to the
+Unix operating system, TofuWiki's primary goal is to make it possible to
 create, navigate, and refactor wiki content at the speed of thought. 
 
-SoyWiki is good for tracking projects, contacts, ideas, and collecting
-and organizing research. SoyWiki combines the affordances of notebooks,
+TofuWiki is good for tracking projects, contacts, ideas, and collecting
+and organizing research. TofuWiki combines the affordances of notebooks,
 index cards, and Post-it notes, and adds to them the power of
 hyperlinks, search, revision history, automated refactoring, and more.
 
-SoyWiki makes a good writing aid, especially if you do your writing in
-Vim. You can have SoyWiki open in multiple Vim windows, tabs, and
+TofuWiki makes a good writing aid, especially if you do your writing in
+Vim. You can have TofuWiki open in multiple Vim windows, tabs, and
 buffers, alongside any number of regular Vim windows. Throw in a bunch
 of Vim abbreviations (`:help abbreviations`), a large monitor, and a
 teapot, and you'll have a powerful toolkit for writing your paper, essay,
 book, or screenplay. 
 
-SoyWiki is free and open source.
+TofuWiki is free and open source.
 
 [scriv]:http://www.literatureandlatte.com/scrivener.php
 
 ## Prerequisites
 
-* a recent version of Vim (SoyWiki is developed against Vim 7.2 and 7.3)
+* a recent version of Vim (TofuWiki is developed against Vim 7.2 and 7.3)
 * a recent version of Ruby: at least Ruby 1.9.3, but we recommend 2.0.0 or above
 * a recent version of [Git][git] (1.7.0.4 or above to be safe)
 
 [git]:http://git-scm.com/
 
-The current version of SoyWiki assumes a Unix environment. 
+The current version of TofuWiki assumes a Unix environment. 
 
-To use SoyWiki you should be fairly good at using Vim. 
+To use TofuWiki you should be fairly good at using Vim. 
 
 To install Ruby we recommend using the a ruby version manager,
 like [RVM Version Manager][rvm] or [rbenv][rbenv].
@@ -61,61 +61,61 @@ like [RVM Version Manager][rvm] or [rbenv][rbenv].
 [rvm]:https://rvm.io
 [rbenv]: https://github.com/sstephenson/rbenv
 
-Most of SoyWiki's commands should work even if you don't have Git
+Most of TofuWiki's commands should work even if you don't have Git
 installed. But the revision history commands will not.
 
 ## Installation
 
-    gem install soywiki
+    gem install tofuwiki
 
-Test your installation by typing `soywiki -h`. You should see SoyWiki's help.
+Test your installation by typing `tofuwiki -h`. You should see TofuWiki's help.
 
 If you run into any PATH errors, try the following: Install the RVM
 Version Manager, then install a recent version of ruby through RVM, and run `gem
-install soywiki`.  This should solve any installation issues.
+install tofuwiki`.  This should solve any installation issues.
 
-If you ever want to uninstall SoyWiki from your system, execute this command:
+If you ever want to uninstall TofuWiki from your system, execute this command:
 
-    gem uninstall soywiki
+    gem uninstall tofuwiki
 
-... and all traces of SoyWiki will removed.
+... and all traces of TofuWiki will removed.
 
-New and improved versions of SoyWiki will be released over time. To install the
-latest version, just type `gem install soywiki` again.
+New and improved versions of TofuWiki will be released over time. To install the
+latest version, just type `gem install tofuwiki` again.
 
 
-## Starting SoyWiki
+## Starting TofuWiki
 
-Before you start SoyWiki, create a directory that will hold your wiki
-files and `cd` into it. Then you can start SoyWiki with
+Before you start TofuWiki, create a directory that will hold your wiki
+files and `cd` into it. Then you can start TofuWiki with
 
-    soywiki
+    tofuwiki
 
-You can make as many SoyWiki wikis on your system as you want just by
+You can make as many TofuWiki wikis on your system as you want just by
 creating directories for them. It's not a good idea however to nest
-SoyWiki wiki directories within each other, for reasons that will become
+TofuWiki wiki directories within each other, for reasons that will become
 clear below.
 
-To use MacVim as your SoyWiki Vim engine, you can run soywiki like this
+To use MacVim as your TofuWiki Vim engine, you can run TofuWiki like this
 
-    SOYWIKI_VIM=mvim soywiki
+    TOFUWIKI_VIM=mvim tofuwiki
 
-or you can `export SOYWIKI_VIM=mvim` in your `~/.bash_profile` and then
-just run `soywiki`.
+or you can `export TOFUWIKI_VIM=mvim` in your `~/.bash_profile` and then
+just run `tofuwiki`.
 
 
-You can start SoyWiki from within a running Vim session. To set this up,
-first install or update SoyWiki, and then run
+You can start TofuWiki from within a running Vim session. To set this up,
+first install or update TofuWiki, and then run
 
-    soywiki --install-plugin
+    tofuwiki --install-plugin
 
 Please note that you will need to run this command after each time you update
-SoyWiki to a newer version.
+TofuWiki to a newer version.
 
-Assuming the plugin is installed, you can start SoyWiki from within a
+Assuming the plugin is installed, you can start TofuWiki from within a
 running Vim session by typing the command
 
-    :Soywiki
+    :Tofuwiki
 
 Make sure when you do this that Vim's working directory is the root of
 your wiki directory. You can change the working directory for the 
@@ -124,7 +124,7 @@ current Vim window with `:lcd`. See `:help lcd` for more info.
 
 ## Basic usage
 
-For basic use, SoyWiki works exactly like a typical wiki.
+For basic use, TofuWiki works exactly like a typical wiki.
 
 You write text, and when you want to create a new wiki page, you come up with a
 WikiWord for it and format it in CamelCase. Whenever you type a valid WikiLink,
@@ -135,20 +135,20 @@ Creating WikiWords and pressing ENTER on them is how you create wiki pages and
 link them together. You'll be surprised at how powerful this simple mechanism
 is for organizing your notes. 
 
-In SoyWiki, a wiki page is a simple text file that has a WikiWord title
+In TofuWiki, a wiki page is a simple text file that has a WikiWord title
 on the first line. Beyond that, you can append any text you want.  (You
 may alter the title line at the top, but it helps you see what wiki page
-you're on.) SoyWiki will create stub WikiPages for you automatically as
+you're on.) TofuWiki will create stub WikiPages for you automatically as
 you traverse WikiLinks that don't yet reference any content.
 
 That's all you need to know to get started. 
 
 ### Configuring further
 
-You can configure soywiki's vim-handling by setting certain variables
+You can configure tofuwiki's vim-handling by setting certain variables
 inside of your `~/.vimrc`. This is a list of the supported settings:
 
-- `let g:soywiki_autosave = 1`  
+- `let g:tofuwiki_autosave = 1`  
   activates autosaving (the default), deactivate by setting `0`.
 
 #### Mappings
@@ -157,36 +157,36 @@ Default mappings can be overridden by providing a custom mapping in your vimrc,
 e.g. like this:
 
 ```vim
-let g:soywiki_mapping_follow_link_under_cursor_here = '<c-f>'
+let g:tofuwiki_mapping_follow_link_under_cursor_here = '<c-f>'
 ```
 
 This is a list of the standard mappings with their default values:
 
-- `g:soywiki_mapping_follow_link_under_cursor_here` *defaults* to `<cr>`
-- `g:soywiki_mapping_follow_link_under_cursor_vertical` *defaults* to `<c-l>`
-- `g:soywiki_mapping_follow_link_under_cursor_horizontal` *defaults* to `<c-h>`
-- `g:soywiki_mapping_fuzzy_follow` *defaults* to `<leader>f`
-- `g:soywiki_mapping_next_link` *defaults* to `<c-j>`
-- `g:soywiki_mapping_next_link` *defaults* to `<c-k>`
-- `g:soywiki_mapping_show_history` *defaults* to `<leader>lp`
-- `g:soywiki_mapping_show_files_history` *defaults* to `<leader>ls`
-- `g:soywiki_mapping_show_blame` *defaults* to `<leader>b`
-- `g:soywiki_mapping_expand_seamless_vertical` *defaults* to `<leader>x`
-- `g:soywiki_mapping_expand_seamful_vertical` *defaults* to `<leader>X`
-- `g:soywiki_mapping_expand_seamless_horizontal` *defaults* to `<leader>xx`
-- `g:soywiki_mapping_expand_seamful_horizontal` *defaults* to `<leader>XX`
-- `g:soywiki_mapping_goto_homepage` *defaults* to `<leader>h`
-- `g:soywiki_mapping_goto_main_homepage` *defaults* to `<leader>H`
-- `g:soywiki_mapping_show_help` *defaults* to `<leader>?`
-- `g:soywiki_mapping_format` *defaults* to `\`
-- `g:soywiki_mapping_add_delimiter_line` *defaults* to `<leader>-`
-- `g:soywiki_mapping_add_date` *defaults* to `<leader>d`
-- `g:soywiki_mapping_add_date_and_delimiter_line` *defaults* to `<leader>D`
+- `g:tofuwiki_mapping_follow_link_under_cursor_here` *defaults* to `<cr>`
+- `g:tofuwiki_mapping_follow_link_under_cursor_vertical` *defaults* to `<c-l>`
+- `g:tofuwiki_mapping_follow_link_under_cursor_horizontal` *defaults* to `<c-h>`
+- `g:tofuwiki_mapping_fuzzy_follow` *defaults* to `<leader>f`
+- `g:tofuwiki_mapping_next_link` *defaults* to `<c-j>`
+- `g:tofuwiki_mapping_next_link` *defaults* to `<c-k>`
+- `g:tofuwiki_mapping_show_history` *defaults* to `<leader>lp`
+- `g:tofuwiki_mapping_show_files_history` *defaults* to `<leader>ls`
+- `g:tofuwiki_mapping_show_blame` *defaults* to `<leader>b`
+- `g:tofuwiki_mapping_expand_seamless_vertical` *defaults* to `<leader>x`
+- `g:tofuwiki_mapping_expand_seamful_vertical` *defaults* to `<leader>X`
+- `g:tofuwiki_mapping_expand_seamless_horizontal` *defaults* to `<leader>xx`
+- `g:tofuwiki_mapping_expand_seamful_horizontal` *defaults* to `<leader>XX`
+- `g:tofuwiki_mapping_goto_homepage` *defaults* to `<leader>h`
+- `g:tofuwiki_mapping_goto_main_homepage` *defaults* to `<leader>H`
+- `g:tofuwiki_mapping_show_help` *defaults* to `<leader>?`
+- `g:tofuwiki_mapping_format` *defaults* to `\`
+- `g:tofuwiki_mapping_add_delimiter_line` *defaults* to `<leader>-`
+- `g:tofuwiki_mapping_add_date` *defaults* to `<leader>d`
+- `g:tofuwiki_mapping_add_date_and_delimiter_line` *defaults* to `<leader>D`
 
 ## Namespaced WikiWords
 
-Every WikiWord in SoyWiki is implicitly or explicitly namespaced.
-SoyWiki's namespaced WikiWords help organize your wiki space
+Every WikiWord in TofuWiki is implicitly or explicitly namespaced.
+TofuWiki's namespaced WikiWords help organize your wiki space
 conceptually.  They also help reduce clutter in your wiki directory.
 
 An explicitly namespaced WikiWord looks like this:
@@ -204,10 +204,10 @@ Within a WikiWord namespace you can use unqualified WikiWords to link
 pages within that namespace together. For example, if you are editing a
 page called `recipes.SoyMacaroni` and you want to link to a page called
 `recipes.SoyRaspberrySmoothie`, you can type a link called
-`SoyRaspberrySmoothie`. SoyWiki will treat this link as an implicitly
+`SoyRaspberrySmoothie`. TofuWiki will treat this link as an implicitly
 namespaced link to another page in the `recipes` namespace. 
 
-SoyWiki wiki pages are stored as text files named by WikiWord within
+TofuWiki wiki pages are stored as text files named by WikiWord within
 subdirectories named after their namespace. So
 `recipes.SoyRaspberrySmoothie` would be written to
 `recipes/SoyRaspberrySmoothie`.
@@ -215,20 +215,20 @@ subdirectories named after their namespace. So
 You can't chain namespace words together. The maximum nesting level is 1.  More
 nesting would imply hierarchical relationships, and permitting hierarchical
 nesting goes against the grain of what a wiki is, which is an [undirected
-graph][graph].  SoyWiki namespaces are not supposed to represent hierarchies,
+graph][graph].  TofuWiki namespaces are not supposed to represent hierarchies,
 but domains (e.g., personal, work, project1, project2, etc.).  You can easily
 represent hierarchical relationships _within_ a wiki page. See "Expanding a
-wiki page" below to see how you can use SoyWiki like an outliner program.
+wiki page" below to see how you can use TofuWiki like an outliner program.
 
 [graph]:http://en.wikipedia.org/wiki/Graph_theory
 
 
-When you start SoyWiki for the first time, the active namespace is the default
+When you start TofuWiki for the first time, the active namespace is the default
 namespace `main`. `main.HomePage` is the first page you will see.
 
 ## Wiki navigation 
 
-You can navigate a SoyWiki wiki very quickly with the following
+You can navigate a TofuWiki wiki very quickly with the following
 commands: 
 
 * `CTRL-j` and `CTRL-k` move the cursor directly to the next or previous WikiLink on the page
@@ -282,12 +282,12 @@ external web browser. Web hyperlinks  are the URLs that begin with
 http:// or https://. You can also use `ENTER` when the cursor is over a
 web hyperlink.
 
-Under the covers, SoyWiki uses the command `gnome-open` or `open` to
+Under the covers, TofuWiki uses the command `gnome-open` or `open` to
 launch your external web browser. This should cover Linux Gnome desktop
-and OS X users. You can change the command SoyWiki uses to open a
+and OS X users. You can change the command TofuWiki uses to open a
 hyperlink by adding this to your `~/.vimrc`:
 
-    let g:SoyWiki#browser_command = "your browser command here"
+    let g:TofuWiki#browser_command = "your browser command here"
 
 If your Vim has `netrw` installed, you can open a hyperlink directly in
 Vim by putting the cursor on a web hyperlink and typing `gf`, `CTRL-W f`
@@ -298,7 +298,7 @@ session using `elinks` or whatever browser you set as your
 TIP: I personally prefer using `netrw` (configured to use elinks) to
 launching URLs in an external web browser. This lets me keep all my URL
 bookmarks in regular text files and open, clip, and annotate them all in
-SoyWiki and Vim. Using `netrw` helps your text editor rather than your
+TofuWiki and Vim. Using `netrw` helps your text editor rather than your
 web browser dominate your workflow.  And you tend to stay focused on
 your task rather than going down the rabbit hole of internet
 distractions.
@@ -307,7 +307,7 @@ distractions.
 ## WikiLink autocompletion
 
 When you're writing a wiki page and you want to link to another page,
-SoyWiki can help you autocomplete your WikiLink. Press `CTRL-x CTRL-u`
+TofuWiki can help you autocomplete your WikiLink. Press `CTRL-x CTRL-u`
 in Vim insert mode to invoke it.
 
 
@@ -320,7 +320,7 @@ is valid CamelCase. You can put a namespace in front of the new name
 as `namespace.` or `namespace/`. If you omit the namespace, the current
 namespace is assumed.
 
-When you rename a page, SoyWiki will update all the links on other pages
+When you rename a page, TofuWiki will update all the links on other pages
 in your wiki that need to be updated in light of the change. (You'll see
 the other links that were updated in the output.)
 
@@ -335,7 +335,7 @@ method of writing a WikiLink and then traversing it. This will make your
 wiki more interlinked, better organized, and easier to traverse in an
 organic way.
 
-Beyond the standard cut and paste, SoyWiki gives you four fast ways of
+Beyond the standard cut and paste, TofuWiki gives you four fast ways of
 shuttling text from one wiki page to another.
 
 First, highlight the text you want to move with Vim's visual mode. (See
@@ -378,7 +378,7 @@ same wiki page.
 * `:SWSearch [term]`
 * `:SWNamespaceSearch [term]`
 
-These commands search your SoyWiki wiki. `:SWNamespaceSearch` confines
+These commands search your TofuWiki wiki. `:SWNamespaceSearch` confines
 your search to the current namespace.
 
 Vim will load any matches in the quickfix list window.  If there are
@@ -420,25 +420,25 @@ the now opened page) you can instead press `<space>`.
 
 ## Revision history and distributed workflows
 
-SoyWiki delegates revision-tracking, syncing, and collaboration
-workflows to Git.  SoyWiki automatically creates a Git repository in
+TofuWiki delegates revision-tracking, syncing, and collaboration
+workflows to Git.  TofuWiki automatically creates a Git repository in
 your wiki directory and automatically commits all the edits you make to
-it.  You can sync a SoyWiki wiki between two computers using the
+it.  You can sync a TofuWiki wiki between two computers using the
 standard Git push and pull commands.  Collaborators can also edit a
 common wiki this way, in peer to peer fashion. 
 
-SoyWiki provides a few convenient key mappings to view the revision
+TofuWiki provides a few convenient key mappings to view the revision
 history of a wiki page: 
 
 * `,lp` shows a `git-log -p` view of the revision history of the current page
 * `,ls` shows a `git log --stat` view of the current page's revision history
 * `,b` shows a `git-blame` view of the current page, which shows when each line was added and by whom.
 
-You can always bypass Vim and SoyWiki altogether and use Git directly to
-inspect your revision history. The Git repo for your SoyWiki wiki will
+You can always bypass Vim and TofuWiki altogether and use Git directly to
+inspect your revision history. The Git repo for your TofuWiki wiki will
 be located in the same directory as your wiki files.
 
-To sync your SoyWiki wiki between two personal computers, you can follow
+To sync your TofuWiki wiki between two personal computers, you can follow
 the instructions [here][git-sync] and set up an bare Git repository on
 some server for all your computers to push to and pull from.
 
@@ -449,10 +449,10 @@ folder in a [Dropbox][dropbox] folder.
 
 [dropbox]:http://stevelosh.com/projects/t/#it-does-the-simplest-thing-that-could-possibly-work
 
-If you want to edit a common SoyWiki with many other people, it's
+If you want to edit a common TofuWiki with many other people, it's
 probably best to set up a common upstream Git repository (e.g. on
 GitHub, if the wiki content is for public consumption).  This process
-may be intimidating for non-programmers, so a future version of SoyWiki
+may be intimidating for non-programmers, so a future version of TofuWiki
 may provide a more user-friendly interface for distributed collaboration
 workflows.
 
@@ -460,7 +460,7 @@ workflows.
 
 ## Expanding a wiki page
 
-SoyWiki lets you "expand" a wiki page.  What this does is expand all the
+TofuWiki lets you "expand" a wiki page.  What this does is expand all the
 wiki links in the page that appear alone on a line.  Each of these links
 is replaced by the content of the wiki page the link points to. This
 expansion works recursively on all the expanded content.  Don't worry.
@@ -493,14 +493,14 @@ dreams within dreams.
 
 ## Exporting to HTML
 
-* `soywiki --html` 
-* `soywiki --html --markdown` 
+* `tofuwiki --html` 
+* `tofuwiki --html --markdown` 
 
 Want to share your wiki with non-Vim-users?  You can export your wiki
-into a directory of HTML pages. Type `soywiki --html` from the root
+into a directory of HTML pages. Type `tofuwiki --html` from the root
 directory of your wiki.
 
-Aside from WikiWords, SoyWiki uses no markup system whatsoever. You can
+Aside from WikiWords, TofuWiki uses no markup system whatsoever. You can
 write your content in whatever markup system you want, or no markup
 system at all. 
 
@@ -515,7 +515,7 @@ Markdown by adding the `--markdown` flag.
 
 ## Extra macros
 
-SoyWiki adds a few convenient Vim macros. 
+TofuWiki adds a few convenient Vim macros. 
 
 * `\` in normal mode reformats the current paragraph. It is equivalent to
 `gqap`. (`:help formatting`)
@@ -532,7 +532,7 @@ Typing `,?` will open the help webpage in a browser.
 ## CamelCase WikiLinks rule!
 
 Some people don't like the CamelCase (a.k.a. WikiCase) wiki link
-pattern. But SoyWiki stands with CamelCase. 
+pattern. But TofuWiki stands with CamelCase. 
 
 * Besides being the original, CamelCase is the most elegantly minimalist approach to linking wiki pages together -- "with no additional markup whatsoever," [as Ward Cunningham put it][ward]. 
 * It encourages you more than other wiki link patterns to create wiki pages with succinctly descriptive names that are easy to remember.
@@ -563,29 +563,26 @@ to a webpage you need to generate relative links if you are using
 `soyfile://` (the default is to generate absolute `file://` links).
 You can achieve this by calling:
 
-- `soywiki --html --relative`
-- `soywiki --html --markdown --relative`
+- `tofuwiki --html --relative`
+- `tofuwiki --html --markdown --relative`
 
 
 ## Bug reports and feature requests
 
-SoyWiki is very new, so there are kinks and bugs to iron out and lot of
+TofuWiki is very new, so there are kinks and bugs to iron out and lot of
 desirable features to add.  If you have a bug to report or a good feature to
 suggest, please file it on the [issue tracker][1].  That will help a lot.
 
-[1]:https://github.com/danchoi/soywiki/issues
+[1]:https://github.com/aliceinwire/tofuwiki/issues
 
 You can also join the [Google Group][group] and comment there.
 
-[group]:http://groups.google.com/group/soywiki-users?msg=new&lnk=gcis
+[group]:http://groups.google.com/group/tofuwiki-users?msg=new&lnk=gcis
 
 ## Maintainer
 
-The original version of Soywiki was created by Daniel Choi (email: dhchoi at gmail.com).  
-
-Soywiki is now being maintained and extended by Tim Reddehase (github: [@0robustus1][tim]).
-
-[tim]:https://github.com/0robustus1
+Tofuwiki is developed and maintained by Alice Ferrazzi (email: alice.ferrazzi@gmail.com)
+Tofuwiki is based on Soywiki created by Daniel Choi (email: dhchoi at gmail.com).  
 
 ## Roadmap
 

@@ -2,11 +2,11 @@
 " Maintainer:	Daniel Choi <dhchoi@gmail.com>
 " License: MIT License (c) 2011 Daniel Choi
 
-if exists("g:SoyWikiLoaded") || &cp || version < 700
+if exists("g:TofuWikiLoaded") || &cp || version < 700
   finish
 endif
 
-let g:SoyWikiLoaded = 1
+let g:TofuWikiLoaded = 1
 
 let mapleader = ','
 
@@ -16,14 +16,14 @@ let s:uri_link_pattern = '\v(https|http|file|soyfile):[^ >)\]]+\V'
 let s:soyfile_pattern = '\v^soyfile:[^ >)\]]+\V'
 let s:wiki_or_web_link_pattern =  '\C\<\([a-z0-9][[:alnum:]_]\+\.\)\?[A-Z][a-z]\+[A-Z0-9]\w*\>\|https\?:[^ >)\]]\+'
 
-let s:rename_links_command = 'soywiki-rename '
-let s:find_pages_linking_in_command = 'soywiki-pages-linking-in '
-let s:expand_command = 'soywiki-expand '
-let s:ls_command = 'soywiki-ls-t '
+let s:rename_links_command = 'tofuwiki-rename '
+let s:find_pages_linking_in_command = 'tofuwiki-pages-linking-in '
+let s:expand_command = 'tofuwiki-expand '
+let s:ls_command = 'tofuwiki-ls-t '
 let s:search_for_link = ""
 
-if !exists("g:soywiki_filetype")
-	let g:soywiki_filetype = 'txt'
+if !exists("g:tofuwiki_filetype")
+	let g:tofuwiki_filetype = 'txt'
 endif
 
 func! s:trimString(string)
@@ -612,7 +612,7 @@ func! s:open_href_under_cursor()
   let word = expand("<cWORD>")
   let soyuri = matchstr(word, s:uri_link_pattern)
   let uri = s:expand_iana_uri(soyuri)
-  let command = g:SoyWiki#browser_command . " '" . uri . "' "
+  let command = g:TofuWiki#browser_command . " '" . uri . "' "
   call system(command)
   echom command 
 endfunc
@@ -665,7 +665,7 @@ endfunc
 " -------------------------------------------------------------------------------- 
 "  HELP
 func! s:show_help()
-  let command = g:SoyWiki#browser_command . ' ' . shellescape('http://danielchoi.com/software/soywiki.html')
+  let command = g:TofuWiki#browser_command . ' ' . shellescape('http://danielchoi.com/software/tofuwiki.html')
   call system(command)
 endfunc
 "------------------------------------------------------------------------
@@ -698,129 +698,129 @@ func! s:global_mappings()
 endfunc 
 
 func! s:prep_mapping_default()
-  if !exists('g:soywiki_mapping_follow_link_under_cursor_here')
-    let g:soywiki_mapping_follow_link_under_cursor_here = '<cr>'
+  if !exists('g:tofuwiki_mapping_follow_link_under_cursor_here')
+    let g:tofuwiki_mapping_follow_link_under_cursor_here = '<cr>'
   endif
-  if !exists('g:soywiki_mapping_follow_link_under_cursor_vertical')
-    let g:soywiki_mapping_follow_link_under_cursor_vertical = '<c-l>'
+  if !exists('g:tofuwiki_mapping_follow_link_under_cursor_vertical')
+    let g:tofuwiki_mapping_follow_link_under_cursor_vertical = '<c-l>'
   endif
-  if !exists('g:soywiki_mapping_follow_link_under_cursor_horizontal')
-    let g:soywiki_mapping_follow_link_under_cursor_horizontal = '<c-h>'
+  if !exists('g:tofuwiki_mapping_follow_link_under_cursor_horizontal')
+    let g:tofuwiki_mapping_follow_link_under_cursor_horizontal = '<c-h>'
   endif
-  if !exists('g:soywiki_mapping_fuzzy_follow')
-    let g:soywiki_mapping_fuzzy_follow = '<leader>f'
+  if !exists('g:tofuwiki_mapping_fuzzy_follow')
+    let g:tofuwiki_mapping_fuzzy_follow = '<leader>f'
   endif
-  if !exists('g:soywiki_mapping_next_link')
-    let g:soywiki_mapping_next_link = '<c-j>'
+  if !exists('g:tofuwiki_mapping_next_link')
+    let g:tofuwiki_mapping_next_link = '<c-j>'
   endif
-  if !exists('g:soywiki_mapping_previous_link')
-    let g:soywiki_mapping_previous_link = '<c-k>'
-  endif
-
-  if !exists('g:soywiki_mapping_show_history')
-    let g:soywiki_mapping_show_history = '<leader>lp'
-  endif
-  if !exists('g:soywiki_mapping_show_files_history')
-    let g:soywiki_mapping_show_files_history = '<leader>ls'
-  endif
-  if !exists('g:soywiki_mapping_show_blame')
-    let g:soywiki_mapping_show_blame = '<leader>b'
+  if !exists('g:tofuwiki_mapping_previous_link')
+    let g:tofuwiki_mapping_previous_link = '<c-k>'
   endif
 
-  if !exists('g:soywiki_mapping_expand_seamless_vertical')
-    let g:soywiki_mapping_expand_seamless_vertical = '<leader>x'
+  if !exists('g:tofuwiki_mapping_show_history')
+    let g:tofuwiki_mapping_show_history = '<leader>lp'
   endif
-  if !exists('g:soywiki_mapping_expand_seamful_vertical')
-    let g:soywiki_mapping_expand_seamful_vertical = '<leader>X'
+  if !exists('g:tofuwiki_mapping_show_files_history')
+    let g:tofuwiki_mapping_show_files_history = '<leader>ls'
   endif
-  if !exists('g:soywiki_mapping_expand_seamless_horizontal')
-    let g:soywiki_mapping_expand_seamless_horizontal = '<leader>xx'
-  endif
-  if !exists('g:soywiki_mapping_expand_seamful_horizontal')
-    let g:soywiki_mapping_expand_seamful_horizontal = '<leader>XX'
+  if !exists('g:tofuwiki_mapping_show_blame')
+    let g:tofuwiki_mapping_show_blame = '<leader>b'
   endif
 
-  if !exists('g:soywiki_mapping_goto_homepage')
-    let g:soywiki_mapping_goto_homepage = '<leader>h'
+  if !exists('g:tofuwiki_mapping_expand_seamless_vertical')
+    let g:tofuwiki_mapping_expand_seamless_vertical = '<leader>x'
   endif
-  if !exists('g:soywiki_mapping_goto_main_homepage')
-    let g:soywiki_mapping_goto_main_homepage = '<leader>H'
+  if !exists('g:tofuwiki_mapping_expand_seamful_vertical')
+    let g:tofuwiki_mapping_expand_seamful_vertical = '<leader>X'
+  endif
+  if !exists('g:tofuwiki_mapping_expand_seamless_horizontal')
+    let g:tofuwiki_mapping_expand_seamless_horizontal = '<leader>xx'
+  endif
+  if !exists('g:tofuwiki_mapping_expand_seamful_horizontal')
+    let g:tofuwiki_mapping_expand_seamful_horizontal = '<leader>XX'
   endif
 
-  if !exists('g:soywiki_mapping_show_help')
-    let g:soywiki_mapping_show_help = '<leader>?'
+  if !exists('g:tofuwiki_mapping_goto_homepage')
+    let g:tofuwiki_mapping_goto_homepage = '<leader>h'
+  endif
+  if !exists('g:tofuwiki_mapping_goto_main_homepage')
+    let g:tofuwiki_mapping_goto_main_homepage = '<leader>H'
   endif
 
-  if !exists('g:soywiki_mapping_format')
-    let g:soywiki_mapping_format = '\'
+  if !exists('g:tofuwiki_mapping_show_help')
+    let g:tofuwiki_mapping_show_help = '<leader>?'
   endif
-  if !exists('g:soywiki_mapping_add_delimiter_line')
-    let g:soywiki_mapping_add_delimiter_line = '<leader>-'
+
+  if !exists('g:tofuwiki_mapping_format')
+    let g:tofuwiki_mapping_format = '\'
   endif
-  if !exists('g:soywiki_mapping_add_date')
-    let g:soywiki_mapping_add_date = '<leader>d'
+  if !exists('g:tofuwiki_mapping_add_delimiter_line')
+    let g:tofuwiki_mapping_add_delimiter_line = '<leader>-'
   endif
-  if !exists('g:soywiki_mapping_add_date_and_delimiter_line')
-    let g:soywiki_mapping_add_date_and_delimiter_line = '<leader>D'
+  if !exists('g:tofuwiki_mapping_add_date')
+    let g:tofuwiki_mapping_add_date = '<leader>d'
   endif
-  if !exists('g:soywiki_mapping_add_date_note_page')
-    let g:soywiki_mapping_add_date_note_page = '<leader>dp'
+  if !exists('g:tofuwiki_mapping_add_date_and_delimiter_line')
+    let g:tofuwiki_mapping_add_date_and_delimiter_line = '<leader>D'
+  endif
+  if !exists('g:tofuwiki_mapping_add_date_note_page')
+    let g:tofuwiki_mapping_add_date_note_page = '<leader>dp'
   endif
   if !exists('g:soywiki_mapping_push_and_quit')
     let g:soywiki_mapping_push_and_quit = '<leader>qp'
   endif
 endfunc
 
-" this checks if the buffer is a SoyWiki file (from firstline)
+" this checks if the buffer is a TofuWiki file (from firstline)
 " and then turns on syntax coloring and mappings as necessary
 func! s:prep_buffer()
   if (s:is_wiki_page() && !exists("b:mappings_loaded"))
     call s:prep_mapping_default()
     " let user decide on the textwidth
-    let &filetype=g:soywiki_filetype
-    execute 'nnoremap <buffer> '.g:soywiki_mapping_follow_link_under_cursor_here.' :call <SID>follow_link_under_cursor(0)<cr>'
-    execute 'nnoremap <buffer> '.g:soywiki_mapping_follow_link_under_cursor_vertical.' :call <SID>follow_link_under_cursor(2)<cr>'
-    execute 'nnoremap <buffer> '.g:soywiki_mapping_follow_link_under_cursor_horizontal.' :call <SID>follow_link_under_cursor(1)<cr>'
-    execute 'noremap <buffer> '.g:soywiki_mapping_fuzzy_follow.' :call <SID>fuzzy_follow_link(0)<CR>'
-    execute 'noremap <buffer> '.g:soywiki_mapping_next_link.' :call <SID>find_next_wiki_link(0)<CR>'
-    execute 'noremap <buffer> '.g:soywiki_mapping_previous_link.' :call <SID>find_next_wiki_link(1)<CR>'
+    let &filetype=g:tofuwiki_filetype
+    execute 'nnoremap <buffer> '.g:tofuwiki_mapping_follow_link_under_cursor_here.' :call <SID>follow_link_under_cursor(0)<cr>'
+    execute 'nnoremap <buffer> '.g:tofuwiki_mapping_follow_link_under_cursor_vertical.' :call <SID>follow_link_under_cursor(2)<cr>'
+    execute 'nnoremap <buffer> '.g:tofuwiki_mapping_follow_link_under_cursor_horizontal.' :call <SID>follow_link_under_cursor(1)<cr>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_fuzzy_follow.' :call <SID>fuzzy_follow_link(0)<CR>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_next_link.' :call <SID>find_next_wiki_link(0)<CR>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_previous_link.' :call <SID>find_next_wiki_link(1)<CR>'
 
     command! -bar -nargs=1 -range -complete=file SWCreate :call <SID>create_page(<f-args>)
     command! -bar -nargs=1 -range -complete=file SWRenameTo :call <SID>rename_page(<f-args>)
     command! -buffer SWDelete :call s:delete_page()
 
     command! -buffer SWLog :call s:show_revision_history(0)
-    execute 'noremap <buffer> '.g:soywiki_mapping_show_history.' :call <SID>show_revision_history(0)<CR>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_show_history.' :call <SID>show_revision_history(0)<CR>'
     command! -buffer SWLogStat :call s:show_revision_history(1)
-    execute 'noremap <buffer> '.g:soywiki_mapping_show_files_history.' :call <SID>show_revision_history(1)<CR>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_show_files_history.' :call <SID>show_revision_history(1)<CR>'
     command! -buffer SWBlame :call s:show_blame()
-    execute 'noremap <buffer> '.g:soywiki_mapping_show_blame.' :call <SID>show_blame()<CR>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_show_blame.' :call <SID>show_blame()<CR>'
 
-    execute 'noremap <buffer> '.g:soywiki_mapping_expand_seamless_vertical.' :call <SID>expand(0,1)<CR>'
-    execute 'noremap <buffer> '.g:soywiki_mapping_expand_seamful_vertical.' :call <SID>expand(1,1)<CR>'
-    execute 'noremap <buffer> '.g:soywiki_mapping_expand_seamless_horizontal.' :call <SID>expand(0,0)<CR>'
-    execute 'noremap <buffer> '.g:soywiki_mapping_expand_seamful_horizontal.' :call <SID>expand(1,0)<CR>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_expand_seamless_vertical.' :call <SID>expand(0,1)<CR>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_expand_seamful_vertical.' :call <SID>expand(1,1)<CR>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_expand_seamless_horizontal.' :call <SID>expand(0,0)<CR>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_expand_seamful_horizontal.' :call <SID>expand(1,0)<CR>'
 
-    execute 'noremap <buffer> '.g:soywiki_mapping_goto_homepage.' :call <SID>goto_homepage(0)<CR>'
-    execute 'noremap <buffer> '.g:soywiki_mapping_goto_main_homepage.' :call <SID>goto_homepage(1)<CR>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_goto_homepage.' :call <SID>goto_homepage(0)<CR>'
+    execute 'noremap <buffer> '.g:tofuwiki_mapping_goto_main_homepage.' :call <SID>goto_homepage(1)<CR>'
 
-    execute 'noremap <silent> '.g:soywiki_mapping_show_help.' :call <SID>show_help()<cr>'
+    execute 'noremap <silent> '.g:tofuwiki_mapping_show_help.' :call <SID>show_help()<cr>'
 
-    execute 'nnoremap <buffer> '.g:soywiki_mapping_format.' gqap '
-    execute 'nnoremap <buffer> '.'.g:soywiki_mapping_add_delimiter_line o<Esc>k72i-<Esc><CR>'
-    execute 'nnoremap <buffer> '.g:soywiki_mapping_add_date.' :r !date<CR>o<Esc>'
-    execute 'nnoremap '.g:soywiki_mapping_add_date_and_delimiter_line.' :r !date<CR><Esc>k72i-<Esc>jo<Esc>'
-    execute 'nnoremap '.g:soywiki_mapping_add_date_note_page.' :pu=strftime(\"%Y%m%d\")<Esc>i[Date<Esc>$a<Esc>a]<CR><Esc>'
-    execute 'nnoremap '.g:soywiki_mapping_push_and_quit.' :w<Esc>:!git push<Esc>:q<CR>'
+    execute 'nnoremap <buffer> '.g:tofuwiki_mapping_format.' gqap '
+    execute 'nnoremap <buffer> '.'.g:tofuwiki_mapping_add_delimiter_line o<Esc>k72i-<Esc><CR>'
+    execute 'nnoremap <buffer> '.g:tofuwiki_mapping_add_date.' :r !date<CR>o<Esc>'
+    execute 'nnoremap '.g:tofuwiki_mapping_add_date_and_delimiter_line.' :r !date<CR><Esc>k72i-<Esc>jo<Esc>'
+    execute 'nnoremap '.g:tofuwiki_mapping_add_date_note_page.' :pu=strftime(\"%Y%m%d\")<Esc>i[Date<Esc>$a<Esc>a]<CR><Esc>'
+    execute 'nnoremap '.g:tofuwiki_mapping_push_and_quit.' :w<Esc>:!git push<Esc>:q<CR>'
 
     "   set nu
     setlocal completefunc=CompletePageTitle
 
-    if !exists('g:soywiki_autosave')
-      let g:soywiki_autosave = 1
+    if !exists('g:tofuwiki_autosave')
+      let g:tofuwiki_autosave = 1
     endif
 
-    if g:soywiki_autosave
+    if g:tofuwiki_autosave
       augroup save_revision
         au!
         autocmd FileWritePost,BufWritePost,BufUnload <buffer> call s:save_revision()
@@ -849,14 +849,14 @@ endif
 " compress the repo
 call system("git gc")
 
-if !exists("g:SoyWiki#browser_command")
+if !exists("g:TofuWiki#browser_command")
   for cmd in ["gnome-open", "open"] 
     if executable(cmd)
-      let g:SoyWiki#browser_command = cmd
+      let g:TofuWiki#browser_command = cmd
       break
     endif
   endfor
-  if !exists("g:SoyWiki#browser_command")
+  if !exists("g:TofuWiki#browser_command")
     echom "Can't find the to open your web browser."
   endif
 endif
@@ -869,3 +869,4 @@ endif
 syntax enable
 call s:highlight_wikiwords() 
 call s:prep_buffer()
+

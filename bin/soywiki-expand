@@ -1,7 +1,0 @@
-#!/usr/bin/env ruby
-require 'soywiki'
-require 'soywiki/expander'
-
-repo_path, mode, file = *ARGV
-expander = Soywiki::Expander.new(repo_path, mode, file)
-puts expander.expand

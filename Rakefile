@@ -4,7 +4,7 @@ require 'json'
 require 'rake'
 require 'rake/testtask'
 require 'bundler'
-require 'soywiki'
+require 'tofuwiki'
 
 Bundler::GemHelper.install_tasks
 
@@ -14,7 +14,7 @@ task :push => [:release, :web]
 
 desc "Bumps version number up one and git commits"
 task :bump do
-  basefile = "lib/soywiki.rb"
+  basefile = "lib/tofuwiki.rb"
   file = File.read(basefile)
   oldver = file[/VERSION = '(\d.\d.\d)'/, 1]
   newver_i = oldver.gsub(".", '').to_i + 1
@@ -30,21 +30,21 @@ end
 desc "build and push website"
 task :web => :build_webpage do
   puts "Building and pushing website"
-  Dir.chdir "../project-webpages" do
-    `scp out/soywiki.html zoe2@instantwatcher.com:~/danielchoi.com/public/software/`
-    `rsync -avz out/images-soywiki zoe2@instantwatcher.com:~/danielchoi.com/public/software/`
-    `rsync -avz out/stylesheets zoe2@instantwatcher.com:~/danielchoi.com/public/software/`
-    `rsync -avz out/lightbox2 zoe2@instantwatcher.com:~/danielchoi.com/public/software/`
+  Dir.chdir "." do
+    `scp out/tofuwiki.html root@aliceinwire.net:/var/www/public/software/`
+    `rsync -avz out/images-tofuwiki root@aliceinwire.net:/var/www/public/software/`
+    `rsync -avz out/stylesheets root@aliceinwire.net:/var/www/public/software/`
+    `rsync -avz out/lightbox2 root@aliceinwire.net:/var/www/public/software/`
   end
-  `open http://danielchoi.com/software/soywiki.html`
+  `open http://danielchoi.com/software/tofuwiki.html`
 end
 
 desc "build webpage"
 task :build_webpage do
-  `cp README.markdown ../project-webpages/src/soywiki.README.markdown`
+  `cp README.markdown ../project-webpages/src/tofuwiki.README.markdown`
   Dir.chdir "../project-webpages" do
-    puts `ruby gen.rb soywiki #{Soywiki::VERSION}`
-    #`open out/soywiki.html`
+    puts `ruby gen.rb tofuwiki #{tofuwiki::VERSION}`
+    #`open out/tofuwiki.html`
   end
 end
 

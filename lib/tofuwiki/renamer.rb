@@ -1,4 +1,4 @@
-module Soywiki
+module Tofuwiki
   class Renamer
     attr_reader :repo_path, :old_name, :new_name
     attr_reader :memo

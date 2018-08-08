@@ -1,6 +1,6 @@
 require 'haml'
 require 'rdiscount'
-module Soywiki
+module Tofuwiki
   class Html
     HTML_DIR = 'html-export'
     INDEX_PAGE_TEMPLATE = File.read(File.join(File.dirname(__FILE__), '..', 'index_template.html.haml'))
